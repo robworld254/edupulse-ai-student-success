@@ -1,0 +1,40 @@
+# Python environments and bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test, lint and notebook caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Runtime-only files
+artifacts/*.log
+_private_submission_materials/
+*.log
+*.pid
+*.tmp
+*.bak
+~$*
+
+# Generated previews that are not submission artifacts
+reports/slide_previews/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

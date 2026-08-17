@@ -1,0 +1,319 @@
+{
+  "project": {
+    "name": "EduPulse AI",
+    "full_title": "EduPulse AI: Student Success Early-Warning and Intervention Platform",
+    "model_version": "3.0.0",
+    "context": "Academic prototype localized for a Kabarak University context",
+    "prediction_point": "End of Semester 1"
+  },
+  "reproducibility": {
+    "random_seed": 42,
+    "training_started_utc": "2026-08-16T19:50:17.090108+00:00",
+    "training_completed_utc": "2026-08-16T19:53:10.271565+00:00",
+    "python_version": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "package_versions": {
+      "numpy": "2.5.2",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "joblib": "1.5.3",
+      "streamlit": "1.61.1",
+      "plotly": "6.9.0"
+    },
+    "command": "python -m scripts.train"
+  },
+  "dataset": {
+    "rows": 4424,
+    "columns": 37,
+    "original_feature_count": 36,
+    "duplicates": 0,
+    "missing_cells": 0,
+    "target_classes": [
+      "Dropout",
+      "Enrolled",
+      "Graduate"
+    ],
+    "target_classes_valid": true,
+    "unexpected_non_numeric_feature_cells": 0,
+    "id": 697,
+    "title": "Predict Students' Dropout and Academic Success",
+    "doi": "10.24432/C5MC89",
+    "license": "CC BY 4.0",
+    "source": "UCI Machine Learning Repository",
+    "geographic_context": "Portuguese higher education",
+    "sha256": "feb1ccb7fe95efb5787d1edf5233428f685a574d651ade0acf92f0a45650d238",
+    "class_distribution": {
+      "Dropout": 1421,
+      "Enrolled": 794,
+      "Graduate": 2209
+    }
+  },
+  "split": {
+    "method": "Stratified random 80/20 split before any model selection",
+    "train_rows": 3539,
+    "test_rows": 885,
+    "test_fraction": 0.2
+  },
+  "feature_selection": {
+    "selected_set": "C \u2014 engineered compact inputs",
+    "selection_reason": "Chosen for the usability, interpretability, data-minimization and predictive-performance trade-off. The wider set remains an experiment only and is not accepted by the deployed model.",
+    "required_ui_inputs": [
+      "units_registered",
+      "units_passed",
+      "average_mark_pct",
+      "assessments_completed",
+      "tuition_up_to_date",
+      "outstanding_fee_balance",
+      "scholarship_support"
+    ],
+    "engineered_model_features": [
+      "units_registered",
+      "units_passed",
+      "units_not_passed",
+      "pass_rate",
+      "average_mark_pct",
+      "assessments_completed",
+      "assessments_per_unit",
+      "tuition_up_to_date",
+      "outstanding_fee_balance",
+      "scholarship_support"
+    ],
+    "comparison": [
+      {
+        "feature_set": "C \u2014 engineered compact inputs",
+        "input_count": 7,
+        "model_feature_count": 10,
+        "accuracy": 0.7049952452872407,
+        "balanced_accuracy": 0.668942948337494,
+        "macro_f1": 0.6623234335022072,
+        "weighted_f1": 0.7166081061196232,
+        "dropout_recall": 0.6525658860808408
+      },
+      {
+        "feature_set": "B \u2014 compact raw inputs",
+        "input_count": 7,
+        "model_feature_count": 7,
+        "accuracy": 0.700192985400235,
+        "balanced_accuracy": 0.6628059431786719,
+        "macro_f1": 0.6567996465251681,
+        "weighted_f1": 0.7139721404004645,
+        "dropout_recall": 0.6138418734059818
+      },
+      {
+        "feature_set": "A \u2014 wider leakage-safe Semester 1",
+        "input_count": 13,
+        "model_feature_count": 13,
+        "accuracy": 0.6990650396758803,
+        "balanced_accuracy": 0.6558916225302037,
+        "macro_f1": 0.6516186330739936,
+        "weighted_f1": 0.7104868446872955,
+        "dropout_recall": 0.6525465646495092
+      }
+    ],
+    "grade_conversion": "UCI 0\u201320 Semester 1 grade multiplied by 5 for a 0\u2013100 display scale.",
+    "excluded": "All Semester 2, identity, school/programme, demographic, parental, age, nationality, macroeconomic and Portuguese course-code fields."
+  },
+  "model_selection": {
+    "primary_metric": "Macro F1",
+    "cv": "5-fold stratified cross-validation on training data only",
+    "selected_model": "Support Vector Machine",
+    "selected_cv_macro_f1": 0.6648385094711411,
+    "best_params": {
+      "model__gamma": "scale",
+      "model__C": 8.0
+    },
+    "benchmarks": [
+      {
+        "model": "Support Vector Machine",
+        "accuracy": 0.6996236185361877,
+        "accuracy_std": 0.023568359474261127,
+        "balanced_accuracy": 0.6770439371844729,
+        "balanced_accuracy_std": 0.02151836846488525,
+        "macro_f1": 0.6637247480655522,
+        "macro_f1_std": 0.02270354122558302,
+        "weighted_f1": 0.7146275441869654,
+        "weighted_f1_std": 0.02015316823665089,
+        "dropout_recall": 0.6235296390756627,
+        "dropout_recall_std": 0.03972326820389261
+      },
+      {
+        "model": "Logistic Regression",
+        "accuracy": 0.7049952452872407,
+        "accuracy_std": 0.016477815301198254,
+        "balanced_accuracy": 0.668942948337494,
+        "balanced_accuracy_std": 0.015529175136644771,
+        "macro_f1": 0.6623234335022072,
+        "macro_f1_std": 0.015659246708561943,
+        "weighted_f1": 0.7166081061196232,
+        "weighted_f1_std": 0.012879495832254378,
+        "dropout_recall": 0.6525658860808408,
+        "dropout_recall_std": 0.02418162281356203
+      },
+      {
+        "model": "Extra Trees",
+        "accuracy": 0.7047111611887582,
+        "accuracy_std": 0.01872028800609395,
+        "balanced_accuracy": 0.660907970919271,
+        "balanced_accuracy_std": 0.01896382477702568,
+        "macro_f1": 0.6570359871281855,
+        "macro_f1_std": 0.01910342773995724,
+        "weighted_f1": 0.712746938362956,
+        "weighted_f1_std": 0.016890510678750848,
+        "dropout_recall": 0.6912628487518356,
+        "dropout_recall_std": 0.027782256482588467
+      },
+      {
+        "model": "Random Forest",
+        "accuracy": 0.7024520732944965,
+        "accuracy_std": 0.014909358464435224,
+        "balanced_accuracy": 0.6417787150874921,
+        "balanced_accuracy_std": 0.012695798997558048,
+        "macro_f1": 0.6423908751899623,
+        "macro_f1_std": 0.01340493063191923,
+        "weighted_f1": 0.7047714779010225,
+        "weighted_f1_std": 0.013507023946639322,
+        "dropout_recall": 0.7071025581575083,
+        "dropout_recall_std": 0.02787514998357018
+      },
+      {
+        "model": "Histogram Gradient Boosting",
+        "accuracy": 0.6798448125684239,
+        "accuracy_std": 0.016222065624265543,
+        "balanced_accuracy": 0.6296800726398158,
+        "balanced_accuracy_std": 0.01904892847024659,
+        "macro_f1": 0.6270353936108192,
+        "macro_f1_std": 0.018050139452905654,
+        "weighted_f1": 0.6866744400621122,
+        "weighted_f1_std": 0.01590452882454234,
+        "dropout_recall": 0.6869039338434192,
+        "dropout_recall_std": 0.03303838115163775
+      }
+    ],
+    "tuning": [
+      {
+        "model": "Support Vector Machine",
+        "untuned_cv_macro_f1": 0.6637247480655522,
+        "tuned_cv_macro_f1": 0.6648385094711411,
+        "improvement": 0.0011137614055889422,
+        "best_params": "{\"model__C\": 8.0, \"model__gamma\": \"scale\"}"
+      },
+      {
+        "model": "Logistic Regression",
+        "untuned_cv_macro_f1": 0.6623234335022072,
+        "tuned_cv_macro_f1": 0.664741197792272,
+        "improvement": 0.0024177642900647944,
+        "best_params": "{\"model__C\": 0.1}"
+      }
+    ]
+  },
+  "calibration": {
+    "selected_method": "isotonic",
+    "comparison": [
+      {
+        "method": "isotonic",
+        "cv_log_loss": 0.6918293273783586,
+        "cv_multiclass_brier": 0.37991454995713203,
+        "cv_expected_calibration_error": 0.04793178227146655
+      },
+      {
+        "method": "sigmoid",
+        "cv_log_loss": 0.699890282086879,
+        "cv_multiclass_brier": 0.3870130444691137,
+        "cv_expected_calibration_error": 0.04152709594852838
+      }
+    ],
+    "wording": "Displayed values are model-estimated probabilities, not guarantees."
+  },
+  "risk_bands": {
+    "monitor_threshold": 0.377011,
+    "higher_threshold": 0.408959,
+    "method": "Monitor maximizes binary Dropout F1 on out-of-fold training probabilities; Higher is the smallest OOF threshold at or above monitor with at least 0.75 precision"
+  },
+  "holdout": {
+    "accuracy": 0.7209039548022599,
+    "balanced_accuracy": 0.6283984249273208,
+    "macro_f1": 0.6297174898502845,
+    "weighted_f1": 0.7090248909198679,
+    "log_loss": 0.6738486055834609,
+    "multiclass_brier": 0.37798983505012645,
+    "roc_auc_ovr_weighted": 0.8669527715256786,
+    "classes": [
+      "Dropout",
+      "Enrolled",
+      "Graduate"
+    ],
+    "classification_report": {
+      "Dropout": {
+        "precision": 0.7340425531914894,
+        "recall": 0.7288732394366197,
+        "f1-score": 0.7314487632508834,
+        "support": 284.0
+      },
+      "Enrolled": {
+        "precision": 0.3813559322033898,
+        "recall": 0.2830188679245283,
+        "f1-score": 0.3249097472924188,
+        "support": 159.0
+      },
+      "Graduate": {
+        "precision": 0.7958762886597938,
+        "recall": 0.8733031674208145,
+        "f1-score": 0.8327939590075513,
+        "support": 442.0
+      },
+      "accuracy": 0.7209039548022599,
+      "macro avg": {
+        "precision": 0.6370915913515577,
+        "recall": 0.6283984249273208,
+        "f1-score": 0.6297174898502845,
+        "support": 885.0
+      },
+      "weighted avg": {
+        "precision": 0.7015604496207353,
+        "recall": 0.7209039548022599,
+        "f1-score": 0.7090248909198679,
+        "support": 885.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        207,
+        42,
+        35
+      ],
+      [
+        50,
+        45,
+        64
+      ],
+      [
+        25,
+        31,
+        386
+      ]
+    ]
+  },
+  "feature_baselines": {
+    "units_registered": 6.0,
+    "units_passed": 5.0,
+    "average_mark_pct": 61.6,
+    "assessments_completed": 8.0,
+    "tuition_up_to_date": 1.0,
+    "outstanding_fee_balance": 0.0,
+    "scholarship_support": 0.0
+  },
+  "leakage_control": {
+    "semester_2_allowed": false,
+    "identity_allowed": false,
+    "pipeline_input_contract": [
+      "units_registered",
+      "units_passed",
+      "average_mark_pct",
+      "assessments_completed",
+      "tuition_up_to_date",
+      "outstanding_fee_balance",
+      "scholarship_support"
+    ]
+  }
+}

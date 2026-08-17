@@ -1,0 +1,59 @@
+{
+  "selected_set": "C \u2014 engineered compact inputs",
+  "selection_reason": "Chosen for the usability, interpretability, data-minimization and predictive-performance trade-off. The wider set remains an experiment only and is not accepted by the deployed model.",
+  "required_ui_inputs": [
+    "units_registered",
+    "units_passed",
+    "average_mark_pct",
+    "assessments_completed",
+    "tuition_up_to_date",
+    "outstanding_fee_balance",
+    "scholarship_support"
+  ],
+  "engineered_model_features": [
+    "units_registered",
+    "units_passed",
+    "units_not_passed",
+    "pass_rate",
+    "average_mark_pct",
+    "assessments_completed",
+    "assessments_per_unit",
+    "tuition_up_to_date",
+    "outstanding_fee_balance",
+    "scholarship_support"
+  ],
+  "comparison": [
+    {
+      "feature_set": "C \u2014 engineered compact inputs",
+      "input_count": 7,
+      "model_feature_count": 10,
+      "accuracy": 0.7049952452872407,
+      "balanced_accuracy": 0.668942948337494,
+      "macro_f1": 0.6623234335022072,
+      "weighted_f1": 0.7166081061196232,
+      "dropout_recall": 0.6525658860808408
+    },
+    {
+      "feature_set": "B \u2014 compact raw inputs",
+      "input_count": 7,
+      "model_feature_count": 7,
+      "accuracy": 0.700192985400235,
+      "balanced_accuracy": 0.6628059431786719,
+      "macro_f1": 0.6567996465251681,
+      "weighted_f1": 0.7139721404004645,
+      "dropout_recall": 0.6138418734059818
+    },
+    {
+      "feature_set": "A \u2014 wider leakage-safe Semester 1",
+      "input_count": 13,
+      "model_feature_count": 13,
+      "accuracy": 0.6990650396758803,
+      "balanced_accuracy": 0.6558916225302037,
+      "macro_f1": 0.6516186330739936,
+      "weighted_f1": 0.7104868446872955,
+      "dropout_recall": 0.6525465646495092
+    }
+  ],
+  "grade_conversion": "UCI 0\u201320 Semester 1 grade multiplied by 5 for a 0\u2013100 display scale.",
+  "excluded": "All Semester 2, identity, school/programme, demographic, parental, age, nationality, macroeconomic and Portuguese course-code fields."
+}

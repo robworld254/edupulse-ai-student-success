@@ -1,0 +1,151 @@
+{
+  "project": {
+    "name": "EduPulse AI",
+    "full_title": "EduPulse AI: Student Success Early-Warning and Intervention Platform",
+    "model_version": "3.0.0",
+    "context": "Academic prototype localized for a Kabarak University context",
+    "prediction_point": "End of Semester 1"
+  },
+  "reproducibility": {
+    "random_seed": 42,
+    "training_started_utc": "2026-08-16T19:50:17.090108+00:00",
+    "training_completed_utc": "2026-08-16T19:53:10.271565+00:00",
+    "python_version": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "package_versions": {
+      "numpy": "2.5.2",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "joblib": "1.5.3",
+      "streamlit": "1.61.1",
+      "plotly": "6.9.0"
+    },
+    "command": "python -m scripts.train"
+  },
+  "dataset": {
+    "rows": 4424,
+    "columns": 37,
+    "original_feature_count": 36,
+    "duplicates": 0,
+    "missing_cells": 0,
+    "target_classes": [
+      "Dropout",
+      "Enrolled",
+      "Graduate"
+    ],
+    "target_classes_valid": true,
+    "unexpected_non_numeric_feature_cells": 0,
+    "id": 697,
+    "title": "Predict Students' Dropout and Academic Success",
+    "doi": "10.24432/C5MC89",
+    "license": "CC BY 4.0",
+    "source": "UCI Machine Learning Repository",
+    "geographic_context": "Portuguese higher education",
+    "sha256": "feb1ccb7fe95efb5787d1edf5233428f685a574d651ade0acf92f0a45650d238",
+    "class_distribution": {
+      "Dropout": 1421,
+      "Enrolled": 794,
+      "Graduate": 2209
+    }
+  },
+  "split": {
+    "method": "Stratified random 80/20 split before any model selection",
+    "train_rows": 3539,
+    "test_rows": 885,
+    "test_fraction": 0.2
+  },
+  "model_selection": {
+    "primary_metric": "Macro F1",
+    "cv": "5-fold stratified cross-validation on training data only",
+    "selected_model": "Support Vector Machine",
+    "selected_cv_macro_f1": 0.6648385094711411,
+    "best_params": {
+      "model__gamma": "scale",
+      "model__C": 8.0
+    },
+    "benchmarks": [
+      {
+        "model": "Support Vector Machine",
+        "accuracy": 0.6996236185361877,
+        "accuracy_std": 0.023568359474261127,
+        "balanced_accuracy": 0.6770439371844729,
+        "balanced_accuracy_std": 0.02151836846488525,
+        "macro_f1": 0.6637247480655522,
+        "macro_f1_std": 0.02270354122558302,
+        "weighted_f1": 0.7146275441869654,
+        "weighted_f1_std": 0.02015316823665089,
+        "dropout_recall": 0.6235296390756627,
+        "dropout_recall_std": 0.03972326820389261
+      },
+      {
+        "model": "Logistic Regression",
+        "accuracy": 0.7049952452872407,
+        "accuracy_std": 0.016477815301198254,
+        "balanced_accuracy": 0.668942948337494,
+        "balanced_accuracy_std": 0.015529175136644771,
+        "macro_f1": 0.6623234335022072,
+        "macro_f1_std": 0.015659246708561943,
+        "weighted_f1": 0.7166081061196232,
+        "weighted_f1_std": 0.012879495832254378,
+        "dropout_recall": 0.6525658860808408,
+        "dropout_recall_std": 0.02418162281356203
+      },
+      {
+        "model": "Extra Trees",
+        "accuracy": 0.7047111611887582,
+        "accuracy_std": 0.01872028800609395,
+        "balanced_accuracy": 0.660907970919271,
+        "balanced_accuracy_std": 0.01896382477702568,
+        "macro_f1": 0.6570359871281855,
+        "macro_f1_std": 0.01910342773995724,
+        "weighted_f1": 0.712746938362956,
+        "weighted_f1_std": 0.016890510678750848,
+        "dropout_recall": 0.6912628487518356,
+        "dropout_recall_std": 0.027782256482588467
+      },
+      {
+        "model": "Random Forest",
+        "accuracy": 0.7024520732944965,
+        "accuracy_std": 0.014909358464435224,
+        "balanced_accuracy": 0.6417787150874921,
+        "balanced_accuracy_std": 0.012695798997558048,
+        "macro_f1": 0.6423908751899623,
+        "macro_f1_std": 0.01340493063191923,
+        "weighted_f1": 0.7047714779010225,
+        "weighted_f1_std": 0.013507023946639322,
+        "dropout_recall": 0.7071025581575083,
+        "dropout_recall_std": 0.02787514998357018
+      },
+      {
+        "model": "Histogram Gradient Boosting",
+        "accuracy": 0.6798448125684239,
+        "accuracy_std": 0.016222065624265543,
+        "balanced_accuracy": 0.6296800726398158,
+        "balanced_accuracy_std": 0.01904892847024659,
+        "macro_f1": 0.6270353936108192,
+        "macro_f1_std": 0.018050139452905654,
+        "weighted_f1": 0.6866744400621122,
+        "weighted_f1_std": 0.01590452882454234,
+        "dropout_recall": 0.6869039338434192,
+        "dropout_recall_std": 0.03303838115163775
+      }
+    ],
+    "tuning": [
+      {
+        "model": "Support Vector Machine",
+        "untuned_cv_macro_f1": 0.6637247480655522,
+        "tuned_cv_macro_f1": 0.6648385094711411,
+        "improvement": 0.0011137614055889422,
+        "best_params": "{\"model__C\": 8.0, \"model__gamma\": \"scale\"}"
+      },
+      {
+        "model": "Logistic Regression",
+        "untuned_cv_macro_f1": 0.6623234335022072,
+        "tuned_cv_macro_f1": 0.664741197792272,
+        "improvement": 0.0024177642900647944,
+        "best_params": "{\"model__C\": 0.1}"
+      }
+    ]
+  }
+}

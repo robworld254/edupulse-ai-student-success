@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you reference this academic project, please use the citation below."
+title: "EduPulse AI: Student Success Early-Warning and Intervention Platform"
+type: software
+authors:
+  - family-names: "Nyambok"
+    given-names: "Stephen Robert Ochieng"
+    affiliation: "Kabarak University"
+version: 3.0.0
+date-released: 2026-08-17

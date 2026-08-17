@@ -1,0 +1,53 @@
+{
+  "rows": 4424,
+  "all_predictors_numeric": true,
+  "target_values": [
+    "Dropout",
+    "Enrolled",
+    "Graduate"
+  ],
+  "target_values_valid": true,
+  "missing_cells": 0,
+  "duplicate_rows": 0,
+  "invalid_binary_cells": 0,
+  "negative_semester1_count_cells": 0,
+  "semester1_grades_outside_0_20": 0,
+  "key_numeric_distributions": {
+    "Curricular units 1st sem (credited)": {
+      "min": 0.0,
+      "mean": 0.7099909584086799,
+      "std": 2.3605066191181976,
+      "max": 20.0
+    },
+    "Curricular units 1st sem (enrolled)": {
+      "min": 0.0,
+      "mean": 6.2705696202531644,
+      "std": 2.480178175307158,
+      "max": 26.0
+    },
+    "Curricular units 1st sem (evaluations)": {
+      "min": 0.0,
+      "mean": 8.299050632911392,
+      "std": 4.179105569144036,
+      "max": 45.0
+    },
+    "Curricular units 1st sem (approved)": {
+      "min": 0.0,
+      "mean": 4.706600361663653,
+      "std": 3.094237979693975,
+      "max": 26.0
+    },
+    "Curricular units 1st sem (without evaluations)": {
+      "min": 0.0,
+      "mean": 0.13765822784810128,
+      "std": 0.6908801837297979,
+      "max": 12.0
+    },
+    "Curricular units 1st sem (grade)": {
+      "min": 0.0,
+      "mean": 10.640821575178572,
+      "std": 4.843663380671798,
+      "max": 18.875
+    }
+  }
+}

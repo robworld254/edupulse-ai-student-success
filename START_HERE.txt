@@ -1,0 +1,38 @@
+EDUPULSE AI — START HERE
+========================
+
+Student: Stephen Robert Ochieng Nyambok
+Registration number: CS/M/0113/01/24
+Unit: COMP 413
+Lecturer: Dr Andrew Kipkebut
+
+Academic prototype localized for a Kabarak University context.
+The research model uses UCI Machine Learning Repository Dataset 697,
+not Kabarak University student records.
+
+FIRST OR FULL START
+-------------------
+Double-click:
+    START_EDUPULSE.bat
+
+This creates the virtual environment if needed, installs missing packages,
+obtains the real UCI data if missing, trains only when artifacts are absent
+or outdated, and launches the portal.
+
+FAST START FOR A PRESENTATION
+-----------------------------
+After setup, double-click:
+    RUN_EDUPULSE.bat
+
+This launches the existing trained application without checking packages or
+retraining. The portal is available locally at http://localhost:8501 and does
+not require internet after first-time setup.
+
+RETRAIN EXPLICITLY
+------------------
+From PowerShell in this folder:
+    .\.venv\Scripts\python.exe -m scripts.train
+
+STOP THE PORTAL
+---------------
+Press Ctrl+C in the PowerShell window.
